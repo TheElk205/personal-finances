@@ -1,0 +1,4 @@
+*.db
+.idea
+node_modules
+.next

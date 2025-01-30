@@ -5,7 +5,7 @@ import {
   Bot,
   GalleryVerticalEnd,
   Table,
-  FileUp
+  FileUp, SquareTerminal, BookOpen, Settings2
 } from "lucide-react"
 
 import { NavMain } from "@/components/nav-main"
@@ -35,15 +35,33 @@ const data = {
     },
   ],
   navMain: [
+
     {
-      name: "Overview",
-      url: "./overview",
-      icon: Table
+      title: "Money",
+      url: "#",
+      icon: Table,
+      items: [
+        {
+          title: "Monthly Digest",
+          url: "./monthly-digest",
+        },
+        {
+          title: "Expense Overview",
+          url: "./overview",
+        },
+
+      ],
     },
     {
-      name: "Upload",
-      url: "./upload",
-      icon: FileUp,
+      title: "Data Management",
+      url: "#",
+      icon: Settings2,
+      items: [
+        {
+          title: "Upload",
+          url: "./upload",
+        }
+      ],
     },
   ]
 }
@@ -55,7 +73,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <TeamSwitcher teams={data.teams} />
       </SidebarHeader>
       <SidebarContent>
-        <NavProjects projects={data.navMain} />
+        <NavMain items={data.navMain} />
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />

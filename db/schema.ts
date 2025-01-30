@@ -1,8 +1,9 @@
-import { pgTable, text, real, timestamp } from "drizzle-orm/pg-core";
+import {pgTable, text, real, timestamp, index} from "drizzle-orm/pg-core";
 import {uuid} from "drizzle-orm/pg-core/columns/uuid";
 
 // Define the table schema
-export const bookingData = pgTable("booking_data", {
+export const bookingData = pgTable(
+    "booking_data", {
     id: uuid().primaryKey().defaultRandom(),
     bookingDate: timestamp("booking_date", { withTimezone: true }).notNull(),
     partnerName: text("partner_name").notNull(),
@@ -19,4 +20,7 @@ export const bookingData = pgTable("booking_data", {
     paymentReference: text("payment_reference").notNull(),
     ownAccountName: text("own_account_name").notNull(),
     ownIban: text("own_iban").notNull(),
-});
+},
+    (table) => ({
+        partner_name_trgm_index: index('partner_name_trgm_index').using('GIST', table.partnerName.op('gist_trgm_ops'), table.id)
+    }));

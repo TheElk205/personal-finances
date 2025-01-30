@@ -16,3 +16,5 @@ CREATE TABLE "booking_data" (
 	"own_account_name" text NOT NULL,
 	"own_iban" text NOT NULL
 );
+--> statement-breakpoint
+CREATE INDEX "partner_name_trgm_index" ON "booking_data" USING GIST ("partner_name" gist_trgm_ops,"id");

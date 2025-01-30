@@ -17,7 +17,7 @@ bun dev
 Then start a postgres docker container:
 **CAUTION!** Non persistent!
 ```shell
-docker run --name personal-finance-postgres -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword -e POSTGRES_DB=personal-finance -d postgres
+docker run --name personal-finance-postgres -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword -e POSTGRES_DB=personal-finance -d TheElk205/postgres-vector:latest
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -79,3 +79,7 @@ Converting to utf8:
 ```shell
 iconv -f UTF-16LE// -t UTF-8 george_export.csv > bank_converted.csv
 ```
+
+# Icebox
+- [ ] Remove dependency form transformers.js, as I am only using it for embeddings testing now.
+- 

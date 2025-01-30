@@ -1,0 +1,152 @@
+{
+  "id": "2064bec8-f434-4732-b4f9-81e7ac1916b7",
+  "prevId": "ff36811f-e5d3-4085-b82e-b96818550ef3",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.booking_data": {
+      "name": "booking_data",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "booking_date": {
+          "name": "booking_date",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "partner_name": {
+          "name": "partner_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "partner_iban": {
+          "name": "partner_iban",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "bic_swift": {
+          "name": "bic_swift",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "partner_account_number": {
+          "name": "partner_account_number",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "bank_code": {
+          "name": "bank_code",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "amount": {
+          "name": "amount",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "currency": {
+          "name": "currency",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "booking_details": {
+          "name": "booking_details",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "booking_reference": {
+          "name": "booking_reference",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "note": {
+          "name": "note",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "paid_with": {
+          "name": "paid_with",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "payment_reference": {
+          "name": "payment_reference",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "own_account_name": {
+          "name": "own_account_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "own_iban": {
+          "name": "own_iban",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {
+        "partner_name_trgm_index": {
+          "name": "partner_name_trgm_index",
+          "columns": [
+            {
+              "expression": "partner_name",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last",
+              "opclass": "gist_trgm_ops"
+            },
+            {
+              "expression": "id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "GIST",
+          "with": {}
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

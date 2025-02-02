@@ -2,7 +2,7 @@ import moment from "moment/moment";
 import {db} from "@/db";
 import {and, desc, gte, lte, sql} from "drizzle-orm";
 import {bookingData} from "@/db/schema";
-import ExpenseBars from "@/app/monthly-digest/expense-bars";
+import ExpenseBars from "@/app/money/monthly-digest/expense-bars";
 
 export default async function MonthlyReport({
                                            searchParams,

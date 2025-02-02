@@ -3,8 +3,9 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 ## Getting Started
 
 First, run the development server:
-
+As we are using NExt JS 15 and react 19, we have lots of officially unsupported dependencies. So we have to install with `--legacy-peer-deps`
 ```bash
+npm install --legacy-peer-deps
 npm run dev
 # or
 yarn dev
@@ -17,7 +18,7 @@ bun dev
 Then start a postgres docker container:
 **CAUTION!** Non persistent!
 ```shell
-docker run --name personal-finance-postgres -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword -e POSTGRES_DB=personal-finance -d TheElk205/postgres-vector:latest
+docker run --name personal-finance-postgres -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword -e POSTGRES_DB=personal-finance -d postgres:latest
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -41,6 +42,16 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
+# Database migration
+If changes to the orms have been made, we have to generate a migration SQL file.
+```aiignore
+npx drizzle-kit generate
+```
+
+After that, or if no changes have been made, we have to call
+```shell
+npx drizzle-kit migrate
+```
 # Tools
 Convert George output
 

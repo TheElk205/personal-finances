@@ -2,10 +2,10 @@
 
 import * as React from "react"
 import {
-  Bot,
   GalleryVerticalEnd,
   Table,
-  FileUp, SquareTerminal, BookOpen, Settings2
+  Settings2,
+  Database
 } from "lucide-react"
 
 import { NavMain } from "@/components/nav-main"
@@ -18,7 +18,6 @@ import {
   SidebarHeader,
   SidebarRail,
 } from "@/components/ui/sidebar"
-import {NavProjects} from "@/components/nav-projects";
 
 // This is sample data.
 const data = {
@@ -43,11 +42,11 @@ const data = {
       items: [
         {
           title: "Monthly Digest",
-          url: "./monthly-digest",
+          url: "/money/monthly-digest",
         },
         {
           title: "Expense Overview",
-          url: "./overview",
+          url: "/money/overview",
         },
 
       ],
@@ -55,11 +54,22 @@ const data = {
     {
       title: "Data Management",
       url: "#",
-      icon: Settings2,
+      icon: Database,
       items: [
         {
           title: "Upload",
-          url: "./upload",
+          url: "/dataManagement/upload",
+        }
+      ],
+    },
+    {
+      title: "Settings",
+      url: "#",
+      icon: Settings2,
+      items: [
+        {
+          title: "Similar Booking",
+          url: "/settings/similarBookings",
         }
       ],
     },

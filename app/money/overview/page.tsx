@@ -1,11 +1,11 @@
 import {db} from "@/db";
 import {bookingData} from "@/db/schema";
-import {BookingColumn, columns} from "@/app/overview/columns";
-import {DataTable} from "@/app/overview/data-table";
+import {BookingColumn, columns} from "@/app/money/overview/columns";
+import {DataTable} from "@/app/money/overview/data-table";
 import {and, desc, gte, lte, sql} from "drizzle-orm";
 import moment from "moment";
-import {DatePickerWithRange} from "@/app/overview/date-range-selection";
-import {CustomRadialChart} from "@/app/overview/radial-chart";
+import {DatePickerWithRange} from "@/app/money/overview/date-range-selection";
+import {CustomRadialChart} from "@/app/money/overview/radial-chart";
 
 export default async function Overview({
                                            searchParams,
